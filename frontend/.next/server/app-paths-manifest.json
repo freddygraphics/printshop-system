@@ -1,0 +1,15 @@
+{
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/page": "app/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/api/quotes/route": "app/api/quotes/route.js",
+  "/api/invoices/route": "app/api/invoices/route.js",
+  "/api/orders/route": "app/api/orders/route.js",
+  "/production/page": "app/production/page.js",
+  "/api/jobs/route": "app/api/jobs/route.js",
+  "/api/jobs/reorder/route": "app/api/jobs/reorder/route.js",
+  "/api/invoices/[id]/route": "app/api/invoices/[id]/route.js",
+  "/invoices/[id]/page": "app/invoices/[id]/page.js",
+  "/api/settings/billing/route": "app/api/settings/billing/route.js",
+  "/api/invoices/[id]/job-exists/route": "app/api/invoices/[id]/job-exists/route.js"
+}

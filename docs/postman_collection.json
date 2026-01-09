@@ -1,0 +1,93 @@
+{
+  "info": {
+    "name": "PrintShop API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{base}}/api/health"
+      }
+    },
+    {
+      "name": "Clients list",
+      "request": {
+        "method": "GET",
+        "url": "{{base}}/api/clients"
+      }
+    },
+    {
+      "name": "Create client",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base}}/api/clients",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"ACME\", \"email\": \"client@example.com\"}"
+        }
+      }
+    },
+    {
+      "name": "Products list",
+      "request": {
+        "method": "GET",
+        "url": "{{base}}/api/products"
+      }
+    },
+    {
+      "name": "Create product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base}}/api/products",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Business Cards\", \"category\": \"Marketing\", \"base_price\": 10}"
+        }
+      }
+    },
+    {
+      "name": "Workflow list",
+      "request": {
+        "method": "GET",
+        "url": "{{base}}/api/workflow"
+      }
+    },
+    {
+      "name": "Create invoice",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base}}/api/invoices",
+        "body": {
+          "mode": "raw",
+          "raw": "{\"order_id\": \"<order_uuid>\", \"client_id\": \"<client_uuid>\", \"total_amount\": 120, \"due_date\": \"2025-11-10\"}"
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base",
+      "value": "http://localhost:3001"
+    }
+  ]
+}
