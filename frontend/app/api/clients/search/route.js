@@ -1,3 +1,7 @@
+export const dynamic = "force-dynamic";
+
+import prisma from "@/lib/db";
+
 import { NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
@@ -29,7 +33,7 @@ export async function GET(req) {
         city: true,
         state: true,
         zip: true,
-      }
+      },
     });
 
     return NextResponse.json(clients);
