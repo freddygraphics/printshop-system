@@ -1,18 +1,16 @@
 export const dynamic = "force-dynamic";
 
 import prisma from "@/lib/db";
-
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
 
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
-    const q = searchParams.get("q") || "";
+    const q = searchParams.get("q")?.trim() || "";
 
-    if (q.length < 2) return NextResponse.json([]);
+    if (q.length < 2) {
+      return NextResponse.json([]);
+    }
 
     const clients = await prisma.client.findMany({
       where: {
@@ -34,6 +32,8 @@ export async function GET(req) {
         state: true,
         zip: true,
       },
+      orderBy: { name: "asc" },
+      take: 50,
     });
 
     return NextResponse.json(clients);
