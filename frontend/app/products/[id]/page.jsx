@@ -1,5 +1,5 @@
 "use client";
-
+export const dynamic = "force-dynamic";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -25,11 +25,12 @@ export default function ProductViewPage({ params }) {
     load();
   }, [id]);
 
-  if (loading)
-    return <div className="p-10 text-center">Loading…</div>;
+  if (loading) return <div className="p-10 text-center">Loading…</div>;
 
   if (!product)
-    return <div className="p-10 text-center text-red-500">Product not found</div>;
+    return (
+      <div className="p-10 text-center text-red-500">Product not found</div>
+    );
 
   const cfg = product.customFields || {};
   const opts = product.defaultOptions || {};
@@ -56,7 +57,9 @@ export default function ProductViewPage({ params }) {
             <h2 className="font-semibold text-lg mb-2">Quantities</h2>
             <ul className="ml-4 list-disc">
               {cfg.rows.map((r, i) => (
-                <li key={i}>{r.qty} — ${r.price}</li>
+                <li key={i}>
+                  {r.qty} — ${r.price}
+                </li>
               ))}
             </ul>
           </section>
@@ -68,7 +71,9 @@ export default function ProductViewPage({ params }) {
             <h2 className="font-semibold text-lg mb-2">Finish</h2>
             <ul className="ml-4 list-disc">
               {cfg.finish.map((f, i) => (
-                <li key={i}>{f.name} (+${f.price})</li>
+                <li key={i}>
+                  {f.name} (+${f.price})
+                </li>
               ))}
             </ul>
           </section>
@@ -80,7 +85,9 @@ export default function ProductViewPage({ params }) {
             <h2 className="font-semibold text-lg mb-2">Sides</h2>
             <ul className="ml-4 list-disc">
               {cfg.sides.map((s, i) => (
-                <li key={i}>{s.name} (+${s.price})</li>
+                <li key={i}>
+                  {s.name} (+${s.price})
+                </li>
               ))}
             </ul>
           </section>
@@ -92,7 +99,9 @@ export default function ProductViewPage({ params }) {
             <h2 className="font-semibold text-lg mb-2">Design</h2>
             <ul className="ml-4 list-disc">
               {cfg.design.map((d, i) => (
-                <li key={i}>{d.name} (+${d.price})</li>
+                <li key={i}>
+                  {d.name} (+${d.price})
+                </li>
               ))}
             </ul>
           </section>
@@ -104,7 +113,9 @@ export default function ProductViewPage({ params }) {
             <h2 className="font-semibold text-lg mb-2">Corners</h2>
             <ul className="ml-4 list-disc">
               {cfg.corners.map((c, i) => (
-                <li key={i}>{c.name} (+${c.price})</li>
+                <li key={i}>
+                  {c.name} (+${c.price})
+                </li>
               ))}
             </ul>
           </section>

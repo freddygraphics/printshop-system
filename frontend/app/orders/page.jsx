@@ -1,5 +1,5 @@
 "use client";
-
+export const dynamic = "force-dynamic";
 import { useEffect, useState } from "react";
 
 // Columnas del Production Board
@@ -164,7 +164,9 @@ export default function OrdersBoardPage() {
     }
 
     return (
-      <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${cls}`}>
+      <span
+        className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${cls}`}
+      >
         {label}
       </span>
     );
@@ -187,13 +189,17 @@ export default function OrdersBoardPage() {
 
         {order.clientName && (
           <div className="text-xs text-slate-500 mb-1">
-            Cliente: <span className="font-medium text-slate-700">{order.clientName}</span>
+            Cliente:{" "}
+            <span className="font-medium text-slate-700">
+              {order.clientName}
+            </span>
           </div>
         )}
 
         {order.customFields?.size && (
           <div className="text-xs text-slate-500">
-            Tamaño: <span className="text-slate-700">{order.customFields.size}</span>
+            Tamaño:{" "}
+            <span className="text-slate-700">{order.customFields.size}</span>
           </div>
         )}
 
@@ -228,7 +234,9 @@ export default function OrdersBoardPage() {
           </p>
         </div>
         <div className="flex items-center gap-3 text-xs text-slate-500">
-          {moving && <span className="animate-pulse">Guardando cambios...</span>}
+          {moving && (
+            <span className="animate-pulse">Guardando cambios...</span>
+          )}
           {loading && <span>Cargando órdenes...</span>}
         </div>
       </div>

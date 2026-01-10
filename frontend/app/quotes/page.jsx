@@ -1,13 +1,12 @@
 "use client";
-
+export const dynamic = "force-dynamic";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { FileText, Loader2, Calendar, Search, X } from "lucide-react";
 
 export default function QuotesPage() {
   const searchParams = useSearchParams();
-const urlFilter = searchParams.get("filter") || "month";
-
+  const urlFilter = searchParams.get("filter") || "month";
 
   const [filter, setFilter] = useState(urlFilter);
   const [loading, setLoading] = useState(true);
@@ -96,7 +95,6 @@ const urlFilter = searchParams.get("filter") || "month";
 
   return (
     <div className="space-y-8 animate-fadeIn">
-
       {/* HEADER */}
       <div className="flex flex-wrap items-center justify-between gap-4">
         <h1 className="text-2xl font-semibold flex items-center gap-2">
@@ -122,7 +120,6 @@ const urlFilter = searchParams.get("filter") || "month";
 
       {/* CUSTOMER SEARCH INPUT */}
       <div className="relative w-full max-w-sm">
-
         <div className="flex items-center gap-2 bg-white border rounded-lg shadow-sm px-3 py-2">
           <Search className="text-gray-400" size={18} />
 
@@ -153,7 +150,6 @@ const urlFilter = searchParams.get("filter") || "month";
         {/* AUTOCOMPLETE RESULTS */}
         {customerResults.length > 0 && !selectedCustomer && (
           <div className="absolute w-full bg-white border rounded-xl shadow-lg mt-2 max-h-64 overflow-y-auto z-50">
-
             {customerResults.map((c) => (
               <div
                 key={c.id}
@@ -169,12 +165,9 @@ const urlFilter = searchParams.get("filter") || "month";
                 <p className="text-xs text-gray-500">{c.phone || ""}</p>
               </div>
             ))}
-
           </div>
         )}
       </div>
-
-   
 
       {/* QUOTES TABLE */}
       <div className="rounded-xl border bg-white shadow-sm overflow-hidden">
@@ -216,7 +209,6 @@ const urlFilter = searchParams.get("filter") || "month";
           </tbody>
         </table>
       </div>
-
     </div>
   );
 }
