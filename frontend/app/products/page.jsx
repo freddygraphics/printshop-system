@@ -1,8 +1,6 @@
 "use client";
 export const dynamic = "force-dynamic";
 
-import { useSession } from "next-auth/react";
-
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Plus, Search, Pencil, Trash2, Eye } from "lucide-react";
@@ -13,7 +11,6 @@ export default function ProductsPage() {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [search, setSearch] = useState("");
-  const { data: session } = useSession();
 
   const [showTemplateSelector, setShowTemplateSelector] = useState(false);
   const [showProductModal, setShowProductModal] = useState(false);
