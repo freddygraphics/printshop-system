@@ -34,10 +34,6 @@ export async function GET(req) {
     });
   } catch (error) {
     console.error("❌ Error searching products:", error);
-
-    return new Response(
-      JSON.stringify({ error: "Server error", message: error.message }),
-      { status: 500 }
-    );
+    return new Response(JSON.stringify([]), { status: 500 });
   }
 }
