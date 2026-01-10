@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Plus, Search, Pencil, Trash2, Eye } from "lucide-react";
 import ProductTemplateSelector from "../../components/ProductTemplateSelector";
 import ProductModal from "../../components/ProductModal";
-import { useSession } from "next-auth/react";
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -85,15 +84,6 @@ export default function ProductsPage() {
       {/* HEADER */}
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-2xl font-bold text-[#1E293B]">Products</h1>
-
-        {session?.user?.role === "admin" && (
-          <button
-            onClick={() => setShowTemplateSelector(true)}
-            className="flex items-center gap-2 bg-[#0051A8] hover:bg-[#003f82] text-white px-4 py-2 rounded-lg shadow text-sm font-medium"
-          >
-            <Plus size={18} /> New Product
-          </button>
-        )}
       </div>
 
       {/* TARJETAS */}
