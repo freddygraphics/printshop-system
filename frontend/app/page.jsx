@@ -1,8 +1,5 @@
+import { redirect } from "next/navigation";
+
 export default function HomePage() {
-  return (
-    <div style={{ padding: 40 }}>
-      <h1>PrintShop System</h1>
-      <p>Deployment OK</p>
-    </div>
-  );
+  redirect("/dashboard");
 }
